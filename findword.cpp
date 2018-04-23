@@ -16,7 +16,7 @@ using namespace std;
     char P13[] = {'m','o','s','g','z','c','z','e','t','d','b','o','o','t','o'};
     char P14[] = {'p','d','c','r','z','m','s','n','g','r','d','n','r','p','z'};
     char P15[] = {'o','h','n','k','z','w','a','t','e','r','j','g','t','r','a'};
-    char *pt[] = {P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15};
+    char *puzzle[] = {P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15};
 	
 	string kata;
 	int len_kata,pos;
@@ -29,11 +29,11 @@ using namespace std;
 		void menampilkanpuzzle(){
 			for(int i = 0; i<15; i++) {
         			for(int j=0; j<15; j++) 
-        				cout<<*(*(pt+i)+j)<<"  ";
+        				cout<<*(*(puzzle+i)+j)<<"  ";
 					cout<<endl;
 				}			
 			}	
-		}
+		
 
 		void findword(int x, int y){
 		if(pos == len_kata) valid = true;
@@ -180,4 +180,5 @@ int main(){
         		 }
         		 else cout<<a+1<<". TIDAK ADA"<<endl;   
     reset();
+	}
 }
