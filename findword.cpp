@@ -34,7 +34,6 @@ using namespace std;
 				}			
 			}	
 		
-
 		void findword(int x, int y){
 		if(pos == len_kata) valid = true;
 		if(x>=0 && x<15 && y>=0 && y<=15 && valid==false){
@@ -50,6 +49,7 @@ using namespace std;
 	            pos--;
 	            if(pos==1) direction==0;
 	        }
+			
 	        //serong atas kanan
 	        else if(puzzle[x-1][y+1]==kata[pos] && (direction==2 || direction==0))
 	        {
@@ -61,6 +61,7 @@ using namespace std;
 	            pos--;
 	            if(pos==1) direction==0;
 	        }
+			
 	        //kanan
 	        else if(puzzle[x][y+1]==kata[pos] && (direction==3 || direction==0))
 	        {
@@ -72,6 +73,7 @@ using namespace std;
 	            pos--;
 	            if(pos==1) direction==0;
 	        }
+			
 	        //serong bawah kanan
 	        else if(puzzle[x+1][y+1]==kata[pos] && (direction==4 || direction==0))
 	        {
@@ -83,6 +85,7 @@ using namespace std;
 	            pos--;
 	            if(pos==1) direction==0;
 	        }
+			
 	        //bawah
 	        else if(puzzle[x+1][y]==kata[pos] && (direction==5 || direction==0))
 	        {
@@ -94,6 +97,7 @@ using namespace std;
 	            pos--;
 	            if(pos==1) direction==0;
 	        }
+			
 	        //serong bawah kiri
 	        else if(puzzle[x+1][y-1]==kata[pos] && (direction==6 || direction==0))
 	        {
@@ -105,6 +109,7 @@ using namespace std;
 	            pos--;
 	            if(pos==1) direction==0;
 	        }
+			
 	        //kiri
 	        else if(puzzle[x][y-1]==kata[pos] && (direction==7 || direction==0))
 	        {
@@ -116,6 +121,7 @@ using namespace std;
 	            pos--;
 	            if(pos==1) direction==0;
 	        }
+			
 	        //serong atas kiri
 	        else if(puzzle[x-1][y-1]==kata[pos] && (direction==8 || direction==0))
 	        {
