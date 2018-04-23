@@ -1,15 +1,15 @@
 #include <iostream>
 #include <string>
 using namespace std;
-    char P1[] = {'t','g','b','w','w','i','n','t','e','r','w','s','e','s','n'};
-    char P2[] = {'a','a','u','n','t','t','m','m','h','f','o','o','d','n','b'};
-    char P3[] = {'j','l','w','c','q','l','d','z','m','p','m','v','d','m','r'};
-    char P4[] = {'a','s','a','g','m','q','u','w','v','v','b','s','o','h','i'};
-    char P5[] = {'b','w','p','l','o','t','a','n','a','d','t','p','g','n','c'};
-    char P6[] = {'r','e','w','n','g','o','d','j','c','p','n','a','t','n','k'};
-    char P7[] = {'e','e','o','t','w','o','s','b','q','h','a','r','r','s','a'};
-    char P8[] = {'a','z','c','g','e','s','w','e','w','n','a','k','n','p','b'};
-    char P9[] = {'d','i','n','n','e','r','q','o','d','l','w','d','c','a','r'};
+    char P1 [] = {'t','g','b','w','w','i','n','t','e','r','w','s','e','s','n'};
+    char P2 [] = {'a','a','u','n','t','t','m','m','h','f','o','o','d','n','b'};
+    char P3 [] = {'j','l','w','c','q','l','d','z','m','p','m','v','d','m','r'};
+    char P4 [] = {'a','s','a','g','m','q','u','w','v','v','b','s','o','h','i'};
+    char P5 [] = {'b','w','p','l','o','t','a','n','a','d','t','p','g','n','c'};
+    char P6 [] = {'r','e','w','n','g','o','d','j','c','p','n','a','t','n','k'};
+    char P7 [] = {'e','e','o','t','w','o','s','b','q','h','a','r','r','s','a'};
+    char P8 [] = {'a','z','c','g','e','s','w','e','w','n','a','k','n','p','b'};
+    char P9 [] = {'d','i','n','n','e','r','q','o','d','l','w','d','c','a','r'};
     char P10[] = {'o','n','o','p','k','w','m','p','a','r','k','t','z','c','c'};
     char P11[] = {'q','b','f','r','o','g','m','a','m','w','p','w','e','e','y'};
     char P12[] = {'l','q','z','q','n','n','m','r','z','j','j','s','c','l','g'};
@@ -150,15 +150,17 @@ using namespace std;
 
 		void reset(){
 		pos =0;
-		valid;
+		valid =0;
 		arah=0;
 		}
 
 int main(){
+	
 	menampilkanpuzzle ();	
         int jum_kata;
         cout<<endl<<"Masukkan Jumlah Kata yang akan dicari : ";
         cin>>jum_kata;
+	
         int panjang[jum_kata];
         char kata[jum_kata][15];
 
