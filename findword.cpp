@@ -178,7 +178,6 @@ int main(){
         		 if(valid==true){
             			cout<<a+1<<". ADA"<<endl;
         		 }
-        		 else cout<<a+1<<". TIDAK ADA"<<endl;
-        	
-    		}    
+        		 else cout<<a+1<<". TIDAK ADA"<<endl;   
     reset();
+}
