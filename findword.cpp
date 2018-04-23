@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <iomanip>
 using namespace std;
 	char puzzle[100][100]={{'t','g','b','w','w','i','n','t','e','r','w','s','e','s','n'},
     				{'a','a','u','n','t','t','m','m','h','f','o','o','d','n','b'},
@@ -28,7 +27,7 @@ using namespace std;
 		void menampilkanpuzlle(){
 			for(int i=0;i<=15;i++){		
 				for(int j=0;j<=15;j++){
-					cout<<setw (15)<<puzzle[i][j];
+					cout<<puzzle[i][j]<<"  ";
 				}		
 				cout<<endl;	
 			}	
@@ -128,7 +127,48 @@ using namespace std;
        		 }
 		}
 	}
-
+int main(){
+	
+	int bi;
+	int answer;
+	menampilkanpuzlle ();	
+	cout<<"masukkan jumlah inputan:";cin>>bi;
+	cout<<endl;
+	for(int i=0;i<bi;i++)
+	{
+		cout << "Masukkan kata yang ingin dicari : ";
+    	cin >> kata;
+        
+    	len_kata = kata.length();
+    	//mulai melakukan pencarian
+    	for(int i=0;i<15;i++)
+    		{
+    		for(int j=0;j<15;j++)
+    		{
+                if(kata[0] == puzzle[i][j] && valid==false)
+                {
+                    //pencatatan indeks
+                    in_x[pos] = i;
+                    in_y[pos] = j;
+                    pos++;
+                    
+                    findword(i, j);
+                    //findword(int pos, int direction)
+                    pos--;
+				}
+			}
+	}
+		cout << endl;
+        
+        if(valid==true){
+		
+            cout << "ADA" << endl << endl;
+        }else{
+            cout << "TIDAK ADA" << endl << endl;
+	    }
+}
+return 0;
+}
 		
 
 
