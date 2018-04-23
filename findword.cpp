@@ -1,21 +1,23 @@
 #include <iostream>
 #include <string>
 using namespace std;
-	char puzzle[100][100]={{'t','g','b','w','w','i','n','t','e','r','w','s','e','s','n'},
-    				{'a','a','u','n','t','t','m','m','h','f','o','o','d','n','b'},
-    				{'j','l','w','c','q','l','d','z','m','p','m','v','d','m','r'},
-    				{'a','s','a','g','m','q','u','w','v','v','b','s','o','h','i'},
-    				{'b','w','p','l','o','t','a','n','a','d','t','p','g','n','c'},
-    				{'r','e','w','n','g','o','d','j','c','p','n','a','t','n','k'},
-    				{'e','e','o','t','w','o','s','b','q','h','a','r','r','s','a'},
-    				{'a','z','c','g','e','s','w','e','w','n','a','k','n','p','b'},
-    				{'d','i','n','n','e','r','q','o','d','l','w','d','c','a','r'},
-    				{'o','n','o','p','k','w','m','p','a','r','k','t','z','c','c'},
-    				{'q','b','f','r','o','g','m','a','m','w','p','w','e','e','y'},
-    				{'l','q','z','q','n','n','m','r','z','j','j','s','c','l','g'},
-    				{'m','o','s','g','z','c','z','e','t','d','b','o','o','t','o'},
-    				{'p','d','c','r','z','m','s','n','g','r','d','n','r','p','z'},
-    				{'o','h','n','k','z','w','a','t','e','r','j','g','t','r','a'}};	   
+    char P1[] = {'t','g','b','w','w','i','n','t','e','r','w','s','e','s','n'};
+    char P2[] = {'a','a','u','n','t','t','m','m','h','f','o','o','d','n','b'};
+    char P3[] = {'j','l','w','c','q','l','d','z','m','p','m','v','d','m','r'};
+    char P4[] = {'a','s','a','g','m','q','u','w','v','v','b','s','o','h','i'};
+    char P5[] = {'b','w','p','l','o','t','a','n','a','d','t','p','g','n','c'};
+    char P6[] = {'r','e','w','n','g','o','d','j','c','p','n','a','t','n','k'};
+    char P7[] = {'e','e','o','t','w','o','s','b','q','h','a','r','r','s','a'};
+    char P8[] = {'a','z','c','g','e','s','w','e','w','n','a','k','n','p','b'};
+    char P9[] = {'d','i','n','n','e','r','q','o','d','l','w','d','c','a','r'};
+    char P10[] = {'o','n','o','p','k','w','m','p','a','r','k','t','z','c','c'};
+    char P11[] = {'q','b','f','r','o','g','m','a','m','w','p','w','e','e','y'};
+    char P12[] = {'l','q','z','q','n','n','m','r','z','j','j','s','c','l','g'};
+    char P13[] = {'m','o','s','g','z','c','z','e','t','d','b','o','o','t','o'};
+    char P14[] = {'p','d','c','r','z','m','s','n','g','r','d','n','r','p','z'};
+    char P15[] = {'o','h','n','k','z','w','a','t','e','r','j','g','t','r','a'};
+    char *pt[] = {P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15};
+	
 	string kata;
 	int len_kata,pos;
 	int in_x[100];
@@ -24,12 +26,12 @@ using namespace std;
 	int direction;
 	int arah,sum;
 	
-		void menampilkanpuzlle(){
-			for(int i=0;i<=15;i++){		
-				for(int j=0;j<=15;j++){
-					cout<<puzzle[i][j]<<"  ";
-				}		
-				cout<<endl;	
+		void menampilkanpuzzle(){
+			for(int i = 0; i<15; i++) {
+        			for(int j=0; j<15; j++) 
+        				cout<<*(*(pt+i)+j)<<"  ";
+					cout<<endl;
+				}			
 			}	
 		}
 
@@ -127,48 +129,54 @@ using namespace std;
        		 }
 		}
 	}
-int main(){
-	
-	int bi;
-	int answer;
-	menampilkanpuzlle ();	
-	cout<<"masukkan jumlah inputan:";cin>>bi;
-	cout<<endl;
-	for(int i=0;i<bi;i++)
-	{
-		cout << "Masukkan kata yang ingin dicari : ";
-    	cin >> kata;
+		void pencarian(){
+		pos=0;
+		
+       			for(int i=0;i<15;i++){
+        			for(int j=0;j<15;j++){
+                			if(kata[0] == puzzle[i][j] && valid==false){
         
-    	len_kata = kata.length();
-    	//mulai melakukan pencarian
-    	for(int i=0;i<15;i++)
-    		{
-    		for(int j=0;j<15;j++)
-    		{
-                if(kata[0] == puzzle[i][j] && valid==false)
-                {
-                    //pencatatan indeks
-                    in_x[pos] = i;
-                    in_y[pos] = j;
-                    pos++;
+				    in_x[pos] = i;
+				    in_y[pos] = j;
+				    pos++;
                     
-                    findword(i, j);
-                    //findword(int pos, int direction)
-                    pos--;
+				    findword(i, j);
+				    pos--;
+					}
 				}
 			}
-	}
-		cout << endl;
+		 		cout << endl;
+			}
+
+		void reset(){
+		pos =0;
+		valid;
+		arah=0;
+		}
+
+int main(){
+	menampilkanpuzzle ();	
+        int jum_kata;
+        cout<<endl<<"Masukkan Jumlah Kata yang akan dicari : ";
+        cin>>jum_kata;
+        int panjang[jum_kata];
+        char kata[jum_kata][15];
+
+    	cin.ignore();
+    		for(int a=0; a<jum_kata; a++) {
+        		cout<<a+1<<". ";
+        		cin.getline(kata[a], 15);
+    		}
         
-        if(valid==true){
-		
-            cout << "ADA" << endl << endl;
-        }else{
-            cout << "TIDAK ADA" << endl << endl;
-	    }
-}
-return 0;
-}
-		
-
-
+        cout<<"Hasil: "<<endl;
+    		for(int a=0; a<jum_kata; a++) {
+    				
+    			pencarian();
+    				
+        		 if(valid==true){
+            			cout<<a+1<<". ADA"<<endl;
+        		 }
+        		 else cout<<a+1<<". TIDAK ADA"<<endl;
+        	
+    		}    
+    reset();
